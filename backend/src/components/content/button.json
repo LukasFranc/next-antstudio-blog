@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_content_buttons",
+  "info": {
+    "displayName": "Button",
+    "icon": "anchor"
+  },
+  "options": {},
+  "attributes": {
+    "buttonTitle": {
+      "type": "string",
+      "required": true
+    },
+    "buttonUrl": {
+      "type": "string",
+      "required": true
+    },
+    "buttonIcon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
