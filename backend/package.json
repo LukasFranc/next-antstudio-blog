@@ -17,9 +17,12 @@
     "@strapi/plugin-users-permissions": "4.5.5",
     "@strapi/provider-upload-cloudinary": "^4.5.5",
     "@strapi/strapi": "4.5.5",
+    "mysql": "^2.18.1",
     "pg": "8.6.0"
   },
-
+  "resolutions": {
+    "graphql": "^16.6.0"
+  },
   "author": {
     "name": "Lkáš Franc"
   },
