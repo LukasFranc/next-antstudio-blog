@@ -37,6 +37,7 @@ export async function getArticles() {
             data {
                 id
                 attributes {
+                    slug
                     articleTitle
                     articleDate
                     articleContent
@@ -65,10 +66,11 @@ export async function getArticles() {
 
 export async function getArticle(slug) {
     const data = await fetchAPI(`query Articles($slug: String!) {
-        article(slug: $slug) {
+        articles(filters: {slug: {eq: $slug}}) {
           data {
             id
             attributes {
+              slug
               articleTitle
               articleDate
               articleContent
