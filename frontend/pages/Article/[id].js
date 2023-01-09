@@ -1,4 +1,4 @@
-import Layout from "../../components/layout";
+import Layout from "../../components/Layout";
 import {getArticle, getArticles} from "../../lib/api";
 
 const Article = ({ article, categories }) => {
