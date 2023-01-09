@@ -14,7 +14,8 @@
   "attributes": {
     "articleTitle": {
       "type": "string",
-      "required": true
+      "required": true,
+      "unique": true
     },
     "articleDate": {
       "type": "date"
@@ -48,6 +49,11 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::category.category"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "articleTitle",
+      "required": true
     }
   }
 }
