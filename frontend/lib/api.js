@@ -64,7 +64,7 @@ export async function getArticles() {
 }
 
 export async function getArticle(slug) {
-    const data = await fetchAPI(`query Articles($slug: SLUG!) {
+    const data = await fetchAPI(`query Articles($slug: String!) {
         article(slug: $slug) {
           data {
             id
