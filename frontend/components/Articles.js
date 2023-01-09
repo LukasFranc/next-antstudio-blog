@@ -8,7 +8,7 @@ const Articles = ({ articles }) => {
                     return (
                         <Card
                             article={article}
-                            key={article.attributes.slug}
+                            key={article.data.attributes.slug}
                         />
                     );
                 })}

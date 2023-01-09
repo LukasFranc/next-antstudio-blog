@@ -61,7 +61,7 @@ export async function getArticles() {
             }
         }
     }`)
-    return data.articles.data
+    return data.articles
 }
 
 export async function getArticle(slug) {
@@ -96,7 +96,7 @@ export async function getArticle(slug) {
     }`,
         { variables: { slug } }
     )
-    return data.article.data
+    return data.articles
 }
 
 export async function getCategories() {
