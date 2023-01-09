@@ -1,6 +1,6 @@
 module.exports = ({ env }) => ({
   connection: {
-    client: 'mysql',
+    client: 'postgres',
     connection: {
       host: env('PGHOST', 'localhost'),
       port: env.int('PGPORT', 3306),
