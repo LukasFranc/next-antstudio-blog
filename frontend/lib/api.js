@@ -25,97 +25,128 @@ async function fetchAPI(query, { variables } = {}) {
     return json.data
 }
 
-// export async function getArticles() {
-//     const data = await fetchAPI(`query Articles {
-//     articles(sort: "published_at:desc") {
-//       id
-//       title
-//       category {
-//         id
-//         name
-//       }
-//       image {
-//         url
-//         alternativeText
-//       }
-//     }
-//   }`)
-//     return data.articles
-// }
+export function getStrapiURL(path = "") {
+    return `${
+        process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://localhost:1337"
+    }${path}`;
+}
 
-// export async function getArticle(id) {
-//     const data = await fetchAPI(
-//         `query Articles($id: ID!) {
-//     article(id: $id) {
-//       id
-//       title
-//       content
-//       image {
-//         url
-//         alternativeText
-//       }
-//       category {
-//         id
-//         name
-//       }
-//       published_at
-//     }
-//   }`,
-//         { variables: { id } }
-//     )
-//     return data.article
-// }
-
-// export async function getCategories() {
-//     const data = await fetchAPI(`query Categories {
-//         categories {
-//             data{
-//               id
-//               attributes {
-//                 categoryName
-//               }
-//             }
-//         }
-//     }`
-//     )
-//     return data.categories
-// }
-
-export async function getHomepage() {
-    const data = await fetchAPI(`query Homepage {
-        homepage {
-            data{
+export async function getArticles() {
+    const data = await fetchAPI(`query Articles {
+        articles(sort: "articleDate:desc") {
+            data {
                 id
                 attributes {
-                    mainHero {
-                        id
-                        heroTitle
-                        heroSubTitle
-                        heroDescription
-                        heroMainImageOrientation
-                        heroMainImage {
-                            data {
-                                id
-                                attributes {
-                                    url
-                                }
+                    articleTitle
+                    articleDate
+                    articleContent
+                    articleHeadImage {
+                        data {
+                            id
+                            attributes {
+                                url
                             }
                         }
-                        heroButton {
-                            buttonTitle
-                            buttonUrl                                                
-                        }
                     }
-                    mainSections {
-                        id
+                    category {
+                     data{
+                      id
+                      attributes {
+                        categoryName
+                      }
+                    }
                     }
                 }
             }
         }
+    }`)
+    return data.articles.data
+}
+
+export async function getArticle(slug) {
+    const data = await fetchAPI(`query Articles($slug: SLUG!) {
+        article(slug: $slug) {
+          data {
+            id
+            attributes {
+              articleTitle
+              articleDate
+              articleContent
+              articleHeadImage {
+                data {
+                    id
+                    attributes {
+                        url
+                    }
+                }
+              }
+              category {
+                data{
+                  id
+                  attributes {
+                   categoryName
+                  }
+                }
+              }
+            }
+          }
+        }
+    }`,
+        { variables: { slug } }
+    )
+    return data.article.data
+}
+
+export async function getCategories() {
+    const data = await fetchAPI(`query Categories {
+        categories {
+            data{
+              id
+              attributes {
+                categoryName
+              }
+            }
+        }
     }`
     )
-    return data.homepage.data.attributes
+    return data.categories.data
 }
+
+// export async function getHomepage() {
+//     const data = await fetchAPI(`query Homepage {
+//         homepage {
+//             data{
+//                 id
+//                 attributes {
+//                     mainHero {
+//                         id
+//                         heroTitle
+//                         heroSubTitle
+//                         heroDescription
+//                         heroMainImageOrientation
+//                         heroMainImage {
+//                             data {
+//                                 id
+//                                 attributes {
+//                                     url
+//                                 }
+//                             }
+//                         }
+//                         heroButton {
+//                             buttonTitle
+//                             buttonUrl
+//                         }
+//                     }
+//                     mainSections {
+//                         id
+//                     }
+//                 }
+//             }
+//         }
+//     }`
+//     )
+//     return data.homepage.data.attributes
+// }
 
 // export async function getCategory(id) {
 //     const data = await fetchAPI(
