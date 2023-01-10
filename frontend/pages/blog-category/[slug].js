@@ -4,13 +4,11 @@ import ArticlesList from "../../components/ArticlesList";
 const Category = ({ articles, categories, category }) => {
 
     return (
-        <Layout categories={categories}>
-            <div id="content" className='articleContent'>
+        <Layout categories={categories} contentClass='articlesList articlesList--category '>
                 <section className='section'>
                     <h1>{category.attributes.categoryName}</h1>
                 </section>
                 <ArticlesList articles={articles} />
-            </div>
         </Layout>
     );
 };

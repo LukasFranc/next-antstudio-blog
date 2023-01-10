@@ -12,18 +12,16 @@ const Article = ({ article, categories }) => {
     }, []);
 
     return (
-        <Layout categories={categories}>
-            <div id="content" className='articleContent'>
-                <section className='section section--stripe section__mainImage'>
-                    <AntImage image={article.attributes.articleHeadImage} />
-                </section>
-                <section className='section'>
-                    <h1>{article.attributes.articleTitle}</h1>
-                    <div>{article.attributes.category.data.attributes.categoryName}</div>
-                    <div>{dateFormatted}</div>
-                    <div dangerouslySetInnerHTML={{__html: article.attributes.articleContent}}></div>
-                </section>
-            </div>
+        <Layout categories={categories} contentClass='articleDetail'>
+            <section className='section section--stripe section__mainImage'>
+                <AntImage image={article.attributes.articleHeadImage} />
+            </section>
+            <section className='section'>
+                <h1>{article.attributes.articleTitle}</h1>
+                <div>{article.attributes.category.data.attributes.categoryName}</div>
+                <div>{dateFormatted}</div>
+                <div dangerouslySetInnerHTML={{__html: article.attributes.articleContent}}></div>
+            </section>
         </Layout>
     );
 };

@@ -12,7 +12,7 @@ export async function getStaticProps() {
 
 export default function Home({ articles, categories }) {
   return (
-      <Layout categories={categories}>
+      <Layout categories={categories} contentClass='articleList articleList--homePage'>
           <ArticlesList articles={articles} articlesLimit={5} />
       </Layout>
   )
