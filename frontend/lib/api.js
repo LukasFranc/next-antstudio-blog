@@ -45,6 +45,9 @@ export async function getArticles() {
                         data {
                             id
                             attributes {
+                                width
+                                height
+                                alternativeText
                                 url
                             }
                         }
@@ -79,6 +82,9 @@ export async function getArticle(slug) {
                 data {
                     id
                     attributes {
+                        width
+                        height
+                        alternativeText
                         url
                     }
                 }

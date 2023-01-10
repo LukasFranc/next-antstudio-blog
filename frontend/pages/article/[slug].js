@@ -1,11 +1,21 @@
 import Layout from "../../components/Layout";
 import {getArticle, getArticles} from "../../lib/api";
+import AntImage from "../../components/AntImage";
 
 const Article = ({ article, categories }) => {
-
     return (
         <Layout categories={categories}>
-            <h1>{article.attributes.articleTitle}</h1>
+            <div id="content" className='articleContent'>
+                <section className='section section--stripe section__mainImage'>
+                    <AntImage image={article.attributes.articleHeadImage} />
+                </section>
+                <section className='section'>
+                    <h1>{article.attributes.articleTitle}</h1>
+                    <div>{article.attributes.category.data.attributes.categoryName}</div>
+                    <div>{article.attributes.articleDate}</div>
+                    <div dangerouslySetInnerHTML={{__html: article.attributes.articleContent}}></div>
+                </section>
+            </div>
         </Layout>
     );
 };
