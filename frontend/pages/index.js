@@ -1,5 +1,5 @@
 import Layout from "../components/Layout";
-import Articles from "../components/Articles";
+import ArticlesList from "../components/ArticlesList";
 import {getArticles, getCategories} from "../lib/api";
 
 export async function getStaticProps() {
@@ -13,7 +13,7 @@ export async function getStaticProps() {
 export default function Home({ articles, categories }) {
   return (
       <Layout categories={categories}>
-          <Articles articles={articles} />
+          <ArticlesList articles={articles} articlesLimit={5} />
       </Layout>
   )
 }

@@ -1,10 +1,16 @@
 import Layout from "../../components/Layout";
 import {getArticle, getArticles} from "../../lib/api";
 import AntImage from "../../components/AntImage";
+import {useEffect, useState} from "react";
 
 const Article = ({ article, categories }) => {
     const articleDate = new Date(article.attributes.articleDate)
-    const dateFormatted = `${articleDate.toLocaleDateString()}`
+    const [dateFormatted, setDateFormatted] = useState();
+
+    useEffect(() => {
+        setDateFormatted(articleDate.toLocaleDateString());
+    }, []);
+
     return (
         <Layout categories={categories}>
             <div id="content" className='articleContent'>

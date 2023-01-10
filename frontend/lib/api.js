@@ -107,6 +107,45 @@ export async function getArticle(slug) {
     return data?.articles.data
 }
 
+export async function getCategoryArticles(slug) {
+    const data = await fetchAPI(`query Articles ($slug: String!) {
+        articles(filters: { category: {slug: {eq: $slug}}}, sort: "articleDate:desc") {
+          data {
+            id
+            attributes {
+              slug
+              articleTitle
+              articleDate
+              articleContent
+              articleHeadImage {
+                data {
+                    id
+                    attributes {
+                        width
+                        height
+                        alternativeText
+                        url
+                    }
+                }
+              }
+              category {
+                data{
+                  id
+                  attributes {
+                   slug
+                   categoryName
+                  }
+                }
+              }
+            }
+          }
+        }
+    }`,
+        { variables: { slug } }
+    )
+    return data?.articles.data
+}
+
 export async function getCategories() {
     const data = await fetchAPI(`query Categories {
         categories {
@@ -122,6 +161,24 @@ export async function getCategories() {
     )
     return data?.categories.data
 }
+
+export async function getCategory(slug) {
+    const data = await fetchAPI(`query Categories($slug: String!) {
+        categories(filters: {slug: {eq: $slug}}) {
+            data{
+              id
+              attributes {
+                slug
+                categoryName
+              }
+            }
+        }
+    }`,
+        { variables: { slug } }
+    )
+    return data?.categories.data
+}
+
 
 // export async function getHomepage() {
 //     const data = await fetchAPI(`query Homepage {
