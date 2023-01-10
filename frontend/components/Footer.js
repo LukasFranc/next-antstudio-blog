@@ -1,22 +1,42 @@
+import Image from "next/image";
+
 export default function Footer () {
     return (
         <footer className="footer">
             <div className="footer__container">
-                <div className="footer__logo">
-                    <img src="/logo.svg" alt="logo" />
-                </div>
+                <h2>Sledujte nás</h2>
                 <div className="footer__socials">
                     <a href="https://www.facebook.com/">
-                        <img src="/facebook.svg" alt="facebook" />
+                        <span>
+                            <Image src="/logo-facebook.svg" alt="Facebook" width={30} height={30} />
+                        </span>
+                        <span>
+                            Facebook
+                        </span>
                     </a>
                     <a href="https://www.instagram.com/">
-                        <img src="/instagram.svg" alt="instagram" />
+                        <span>
+                            <Image src="/logo-instagram.svg" alt="Instagram" width={30} height={30} />
+                        </span>
+                        <span>
+                            Instagram
+                        </span>
+                    </a>
+                    <a href="https://www.youtube.com/">
+                        <span>
+                            <Image src="/logo-youtube.svg" alt="Youtube" width={30} height={30} />
+                        </span>
+                        <span>
+                            Youtube
+                        </span>
                     </a>
                     <a href="https://www.linkedin.com/">
-                        <img src="/linkedin.svg" alt="linkedin" />
-                    </a>
-                    <a href="https://www.twitter.com/">
-                        <img src="/twitter.svg" alt="twitter" />
+                        <span>
+                            <Image src="/logo-linkedin.svg" alt="LinkedIn" width={30} height={30} />
+                        </span>
+                        <span>
+                            LinkedIn
+                        </span>
                     </a>
                 </div>
             </div>
