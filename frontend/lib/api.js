@@ -15,7 +15,6 @@ async function fetchAPI(query, { variables } = {}) {
             }),
         }
     )
-
     const json = await res.json()
     if (json.errors) {
         console.error(json.errors)
@@ -61,11 +60,11 @@ export async function getArticles() {
             }
         }
     }`)
-    return data.articles
+    return data.articles.data
 }
 
 export async function getArticle(slug) {
-    const data = await fetchAPI(`query Articles($slug: String!) {
+    const data = await fetchAPI(`query Articles() {
         articles(filters: {slug: {eq: $slug}}) {
           data {
             id
@@ -96,7 +95,7 @@ export async function getArticle(slug) {
     }`,
         { variables: { slug } }
     )
-    return data.articles
+    return data.articles.data
 }
 
 export async function getCategories() {

@@ -4,7 +4,7 @@ const Articles = ({ articles }) => {
     return (
         <div className='articleList'>
             <div className="articleList__item">
-                {articles.map((article, i) => {
+                {articles?.map((article, i) => {
                     return (
                         <Card
                             article={article}
