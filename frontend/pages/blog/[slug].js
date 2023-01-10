@@ -1,5 +1,5 @@
 import Layout from "../../components/Layout";
-import {getArticle, getArticles} from "../../lib/api";
+import {getArticle, getArticles, getCategories} from "../../lib/api";
 import AntImage from "../../components/AntImage";
 import {useEffect, useState} from "react";
 
@@ -40,8 +40,9 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
     const article = await getArticle(params.slug)
+    const categories = await getCategories()
     return {
-        props: { article: article[0]},
+        props: { article: article[0], categories: categories},
         revalidate: 1,
     }
 }
