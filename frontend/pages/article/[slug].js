@@ -3,6 +3,8 @@ import {getArticle, getArticles} from "../../lib/api";
 import AntImage from "../../components/AntImage";
 
 const Article = ({ article, categories }) => {
+    const articleDate = new Date(article.attributes.articleDate)
+    const dateFormatted = `${articleDate.toLocaleDateString()}`
     return (
         <Layout categories={categories}>
             <div id="content" className='articleContent'>
@@ -12,7 +14,7 @@ const Article = ({ article, categories }) => {
                 <section className='section'>
                     <h1>{article.attributes.articleTitle}</h1>
                     <div>{article.attributes.category.data.attributes.categoryName}</div>
-                    <div>{article.attributes.articleDate}</div>
+                    <div>{dateFormatted}</div>
                     <div dangerouslySetInnerHTML={{__html: article.attributes.articleContent}}></div>
                 </section>
             </div>
