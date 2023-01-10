@@ -7,7 +7,7 @@ async function fetchAPI(query, { variables } = {}) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${process.env.STRAPI_API_TOKEN}`,
+                'Authorization': `Bearer ${process.env.STRAPI_API_TOKEN_NEW}`,
             },
             body: JSON.stringify({
                 query,
@@ -15,6 +15,7 @@ async function fetchAPI(query, { variables } = {}) {
             }),
         }
     )
+
     const json = await res.json()
     if (json.errors) {
         console.error(json.errors)
@@ -52,6 +53,7 @@ export async function getArticles() {
                      data{
                       id
                       attributes {
+                        slug
                         categoryName
                       }
                     }
@@ -60,11 +62,11 @@ export async function getArticles() {
             }
         }
     }`)
-    return data.articles.data
+    return data?.articles.data
 }
 
 export async function getArticle(slug) {
-    const data = await fetchAPI(`query Articles() {
+    const data = await fetchAPI(`query Articles ($slug: String!) {
         articles(filters: {slug: {eq: $slug}}) {
           data {
             id
@@ -85,6 +87,7 @@ export async function getArticle(slug) {
                 data{
                   id
                   attributes {
+                   slug
                    categoryName
                   }
                 }
@@ -95,7 +98,7 @@ export async function getArticle(slug) {
     }`,
         { variables: { slug } }
     )
-    return data.articles.data
+    return data?.articles.data
 }
 
 export async function getCategories() {
@@ -104,13 +107,14 @@ export async function getCategories() {
             data{
               id
               attributes {
+                slug
                 categoryName
               }
             }
         }
     }`
     )
-    return data.categories.data
+    return data?.categories.data
 }
 
 // export async function getHomepage() {

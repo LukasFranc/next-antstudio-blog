@@ -3,8 +3,7 @@ import AntImage from "./AntImage";
 
 const Card = ({ article }) => {
     return (
-        <Link href={`/article/${article.attributes.slug}`}>
-            <a className="uk-link-reset">
+        <Link key={article.id} href={`/article/${article.attributes.slug}`}>
                 <div className="uk-card uk-card-muted">
                     <div className="uk-card-body">
                         <p id="title" className="uk-text-large">
@@ -12,7 +11,6 @@ const Card = ({ article }) => {
                         </p>
                     </div>
                 </div>
-            </a>
         </Link>
     );
 };

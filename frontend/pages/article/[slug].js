@@ -5,18 +5,17 @@ const Article = ({ article, categories }) => {
 
     return (
         <Layout categories={categories}>
-            <h1>{article.data.attributes.articleTitle}</h1>
+            <h1>{article.attributes.articleTitle}</h1>
         </Layout>
     );
 };
 
 export async function getStaticPaths() {
     const articles = await getArticles();
-
     return {
         paths: articles.map((article) => ({
             params: {
-                slug: article.data.attributes.slug,
+                slug: article.attributes.slug,
             },
         })),
         fallback: false,
@@ -24,8 +23,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    const article = getArticle(params.slug)
-console.log(article)
+    const article = await getArticle(params.slug)
     return {
         props: { article: article[0]},
         revalidate: 1,

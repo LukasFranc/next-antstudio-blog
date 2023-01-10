@@ -4,7 +4,7 @@ const NavItem = ({item}) => {
     return (
         <li key={item.id} className='navigation__item'>
             <Link href={`/category/${item.attributes.slug}`}>
-                <a className="">{item.attributes.name}</a>
+                {item.attributes.name}
             </Link>
         </li>
     );
