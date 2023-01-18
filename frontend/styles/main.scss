@@ -1,3 +1,13 @@
+@import "variables";
 @import "globals";
 
 @import "Home.module.scss";
+
+@import "header";
+@import "footer";
+
+@import "sections";
+@import "articleList";
+@import "articleDetail";
+@import "articleCategory";
+@import "card";

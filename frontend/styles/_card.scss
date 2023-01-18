@@ -1,0 +1,27 @@
+.card__image {
+  object-fit: cover;
+  width: 100%;
+  height: 342px;
+}
+.articleCard {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.card__content {
+  color: $text-color;
+  padding: 1rem;
+  .card__category {
+    text-transform: uppercase;
+  }
+  h3 {
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+  }
+  &:hover {
+    color: $primary;
+  }
+}

@@ -5,7 +5,7 @@ const Nav = ({categories}) => {
     return (
         <nav className="navigation">
             <ul className="navigation__list">
-                <Link href="/">Úvod</Link>
+                <li className='navigation__item'><Link href="/">Úvod</Link></li>
                 {categories?.map((category) => {
                     return (
                         <NavItem key={category.id} item={category}/>

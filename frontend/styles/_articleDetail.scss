@@ -1,0 +1,39 @@
+.articleDetail {
+  .section__mainImage {
+    img {
+      width: 100%;
+      height: 650px;
+      object-fit: cover;
+    }
+  }
+  h1 {
+    font-size: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  section:not(.section__mainImage) {
+    width: 100%;
+    max-width: 768px;
+    margin: 0 auto;
+  }
+  .categoryName {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+  }
+  .publishedDate {
+    font-weight: normal;
+    margin-bottom: 0.25rem;
+  }
+  .textContent {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-align: justify;
+    line-height: 1.5;
+    p {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      font-weight: 300;
+    }
+  }
+}

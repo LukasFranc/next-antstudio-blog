@@ -2,7 +2,7 @@ import {Roboto} from '@next/font/google'
 import '../styles/main.scss'
 
 const roboto = Roboto({
-  weight: ['400', '700'],
+  weight: ['300', '400', '700'],
   style: ['italic', 'normal'],
   subsets: ['latin', 'latin-ext'],
 })

@@ -18,9 +18,9 @@ const Article = ({ article, categories }) => {
             </section>
             <section className='section'>
                 <h1>{article.attributes.articleTitle}</h1>
-                <div>{article.attributes.category.data.attributes.categoryName}</div>
-                <div>{dateFormatted}</div>
-                <div dangerouslySetInnerHTML={{__html: article.attributes.articleContent}}></div>
+                <div className='categoryName'>{article.attributes.category.data.attributes.categoryName}</div>
+                <div className='publishedDate'>{dateFormatted}</div>
+                <div className='textContent' dangerouslySetInnerHTML={{__html: article.attributes.articleContent}}></div>
             </section>
         </Layout>
     );
