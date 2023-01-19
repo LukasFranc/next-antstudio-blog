@@ -6,7 +6,7 @@ const Category = ({ articles, categories, category }) => {
     return (
         <Layout categories={categories} contentClass='articlesList articlesList--category '>
                 <section className='section'>
-                    <h1>{category.attributes.categoryName}</h1>
+                    <h1>{category?.attributes.categoryName}</h1>
                 </section>
                 <ArticlesList articles={articles} />
         </Layout>
