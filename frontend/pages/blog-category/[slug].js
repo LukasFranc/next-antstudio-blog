@@ -21,7 +21,7 @@ export async function getStaticPaths() {
                 slug: category.attributes.slug,
             },
         })),
-        fallback: false,
+        fallback: true,
     }
 }
 
@@ -31,7 +31,7 @@ export async function getStaticProps({ params }) {
     const categories = await getCategories()
     return {
         props: { articles: articles, category: category[0], categories: categories},
-        revalidate: 1,
+        revalidate: 10,
     }
 }
 
