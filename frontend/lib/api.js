@@ -1,7 +1,7 @@
 async function fetchAPI(query, { variables } = {}) {
     const res = await fetch(
         `${
-            process.env.API_URL || 'https://next-antstudio-blog.up.railway.app'
+            process.env.API_URL || 'https://antstudio-blog.up.railway.app'
         }/graphql`,
         {
             method: 'POST',
