@@ -26,7 +26,7 @@ const Article = ({ article, categories }) => {
             <section className='section'>
                 <h1>{articleMainData?.attributes.articleTitle}</h1>
                 <h1>{article?.attributes.articleTitle}</h1>
-                <div className='categoryName'>{article?.attributes.category.data?.attributes.categoryName}</div>
+                <div className='categoryName'>{article?.attributes?.category?.data?.attributes?.categoryName}</div>
                 <div className='publishedDate'>{dateFormatted}</div>
                 <div className='textContent' dangerouslySetInnerHTML={{__html: article?.attributes.articleContent}}></div>
             </section>
